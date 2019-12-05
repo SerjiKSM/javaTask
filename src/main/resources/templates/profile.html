@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="container">
+    <h1>User Profile</h1>
+    <h2 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h2>
+    <div>
+        <a class="btn btn-primary" th:href="@{/listUsers}">List users</a> |
+        <a class="btn btn-primary" th:href="@{/logout}">logout</a>
+    </div>
+    <br>
+    <table class="table table-bordered">
+        <tr>
+            <th>id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Role</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="user : ${userDatas}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.role}"></td>
+            <td th:text="${user.state}"></td>
+            <td th:text="${user.city}"></td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/editUser(id=${user.id})}">Edit</a>
+                <a class="btn btn-danger" th:href="@{/deleteUser(id=${user.id})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

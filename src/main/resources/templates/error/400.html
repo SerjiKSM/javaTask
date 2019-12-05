@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="container">
+<div>
+    <h2>Error</h2>
+    <p></p>
+    <a class="bt-sign-up btn btn-primary" th:href="@{/registration}">Registration</a> | <a class="bt-sign-up btn btn-primary" th:href="@{/}">User Profile</a>
+    <p></p>
+    <div class="alert alert-danger" role="alert">
+        <p th:text="${message}">Message</p>
+    </div>
+    <div class="alert alert-danger" role="alert">
+        <p th:text="${error}">Error Info</p>
+    </div>
+    <div class="alert alert-danger" role="alert">
+        <p th:text="${status}">Status</p>
+    </div>
+
+</div>
+</body>
+</html>

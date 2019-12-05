@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body class="container">
+
+<h1>Edit</h1>
+
+<div class="form-style-2">
+    <form th:action="@{/editUser}" method="post">
+        <input class="input-field form-control" type="hidden" id="id" name="id" th:value="${userDatas.id}">
+        <div class="form-group">
+            <label for="first-name">First name</label>
+            <input class="input-field form-control"  id="first-name" name="firstName" th:value="${userDatas.firstName}">
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last name</label>
+            <input class="input-field form-control"  id="last-name" name="lastName" th:value="${userDatas.lastName}">
+        </div>
+        <input class="bt-sign-up btn btn-primary" type="submit" value="Update">
+    </form>
+
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+</div>
+</body>
+
+</html>
